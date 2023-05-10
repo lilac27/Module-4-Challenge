@@ -1,0 +1,42 @@
+.container {
+    margin: auto;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+  }
+  
+  .welcome {
+    margin-bottom: 20px;
+  }
+  
+  #main {
+    margin-bottom: 20px;
+    font-size: 30px;
+    width: 100%;
+    height: 25px;
+  }
+  
+  #read {
+    margin: auto;
+    padding: 10px;
+    width: 100%;
+    height: 25px;
+  }
+
+  #start {
+    width: 20%;
+    text-align: center;
+    font-size: 30px;
+  }
+  .button {
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+  }
+
+  #countdown {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 20px;
+
+  }
