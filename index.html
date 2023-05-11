@@ -9,14 +9,24 @@
 
 </head>
 <body>
-    <div class="container">
-        <h2 id="countdown"></h2>
+    <div class="headelements">
+        <h2 id="highscore">View Highscores</h2>
+        <h2 id="countdown">Time Left</h2>
+    </div>
+    <div id="mainmenu" class="container" >
         <h1 class="title">Coding Quiz Challenge</h1>
         <p id="main">Test your JavaScript knowledge! This is a timed quiz. Incorrect scores will deduct from your overall time allotted.</p>
+        <div class="button">
+            <button id="start">Start Quiz</button>
+        </div>
     </div>
-    <div class="button">
-    <button id="start">Start Quiz</button>
+   
+    <div id="questioncontainer" class="hide">
+        <h1 id="question1">Question 1</h1>
+        <div id="buttoncontainer">
+
+        </div>
     </div>
-    <script src="./assets/js/script.js"></script>
+    <script src="./assets/script.js"></script>
 </body>
 </html>

@@ -1,8 +1,29 @@
 var highscore
 var timer = document.getElementById('countdown');
 var startbutton = document.getElementById('start');
+var questions = [
+  {
+    question:"This is question 1",
+    choices:["choice 1", "choice 2", "choice 3"],
+    answer:"choice 3"
+  },
+  {
+    question:"This is question 2",
+    choices:["choice 1", "choice 2", "choice 3"],
+    answer:"choice 1"
+  },
+  {
+    question:"This is question 3",
+    choices:["choice 1", "choice 2", "choice 3"],
+    answer:"choice 1"
+  }
 
-// Timer that counts down from 5
+
+]
+var currentquestion = 0
+console.log(questions[0].question)
+
+// Timer that counts down from 30
 function countdown() {
     var timeLeft = 30;
   
@@ -23,10 +44,35 @@ function countdown() {
         timer.textContent = '';
         // Use `clearInterval()` to stop the timer
         clearInterval(timeInterval);
-        // Call the `displayMessage()` function
-        displayMessage("Time's up!");
       }
     }, 1000);
   }
 
-  startbutton.addEventListener ("click", function countdown() );
+  // Create an eventlistener to start timer and display questions
+  startbutton.addEventListener ("click", function(){
+    countdown()
+    showquestions()
+    document.querySelector("#mainmenu").classList.add("hide")
+    document.querySelector("#questioncontainer").classList.remove("hide")
+
+  });
+
+function showquestions () {
+  console.log("Show Questions");
+  document.getElementById("buttoncontainer").innerHTML=""
+  document.querySelector("#question1").textContent=questions[currentquestion].question
+  for (var i=0; i<questions[currentquestion].choices.length; i++) {
+    var newbtn=document.createElement("button")
+    newbtn.textContent=questions[currentquestion].choices[i]
+    newbtn.onclick=function (event){
+      nextquestion(event)
+    }
+    document.getElementById("buttoncontainer").appendChild(newbtn)
+  }
+}
+ function nextquestion (event){
+  console.log (event.target)
+currentquestion++
+showquestions()
+ }
+
