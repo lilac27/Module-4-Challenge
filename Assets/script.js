@@ -1,4 +1,4 @@
-var highscore
+var highscore 
 var timer = document.getElementById('countdown');
 var startbutton = document.getElementById('start');
 var questions = [
@@ -71,8 +71,22 @@ function showquestions () {
   }
 }
  function nextquestion (event){
-  console.log (event.target)
-currentquestion++
+  console.log (event.target.textContent)
+  
+  if (event.target.textContent = questions.answer){
+  alert("Correct!");}
+  else
+  {alert("I'm sorry, the correct answer was" + questions.answer);}
+
+  currentquestion++
 showquestions()
  }
+ //function showAnswer () {
+ // if 
+ //}
 
+// to dos
+// when pushing the button, it should show the answer
+// link the answer to the timer
+// hold answers in local storage for highscore page
+// make highscore page, starts as hidden then remove the attribute
