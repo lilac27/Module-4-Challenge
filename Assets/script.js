@@ -73,15 +73,16 @@ function showquestions () {
  function nextquestion (event){
   console.log (event.target.textContent)
   
-  if (event.target.textContent = questions.answer){
+  if (event.target.textContent = questions[currentquestion].answer){
   alert("Correct!");}
   else
-  {alert("I'm sorry, the correct answer was" + questions.answer);}
+  {alert("I'm sorry, the correct answer was" + questions[currentquestion].answer);}
 
   currentquestion++
 showquestions()
  }
- //function showAnswer () {
+ 
+ // function showAnswer () {
  // if 
  //}
 
