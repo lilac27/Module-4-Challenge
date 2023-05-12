@@ -21,11 +21,13 @@ var questions = [
 
 ]
 var currentquestion = 0
+
 console.log(questions[0].question)
 
+var timeLeft = 30;
 // Timer that counts down from 30
 function countdown() {
-    var timeLeft = 30;
+    
   
     // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
     var timeInterval = setInterval(function () {
@@ -73,21 +75,19 @@ function showquestions () {
  function nextquestion (event){
   console.log (event.target.textContent)
   
-  if (event.target.textContent = questions[currentquestion].answer){
+  if (event.target.textContent == questions[currentquestion].answer){
   alert("Correct!");}
   else
-  {alert("I'm sorry, the correct answer was" + questions[currentquestion].answer);}
+  {alert("I'm sorry, the correct answer was " + questions[currentquestion].answer);
+    timeLeft -= 7;
+
+  }
 
   currentquestion++
 showquestions()
  }
  
- // function showAnswer () {
- // if 
- //}
 
-// to dos
-// when pushing the button, it should show the answer
-// link the answer to the timer
+
 // hold answers in local storage for highscore page
 // make highscore page, starts as hidden then remove the attribute
