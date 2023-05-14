@@ -1,4 +1,4 @@
-var highscore = 0
+var score = 0
 var timer = document.getElementById('countdown');
 var startbutton = document.getElementById('start');
 var questions = [
@@ -53,6 +53,9 @@ function countdown() {
         document.querySelector('#questioncontainer').classList.add("hide")
         document.querySelector('#timeup').classList.remove("hide")
 
+        console.log(score)
+        document.querySelector("#score").textContent = score;
+
 
       }
     }, 1000);
@@ -84,7 +87,7 @@ function showquestions () {
   console.log (event.target.textContent)
   if (event.target.textContent == questions[currentquestion].answer){
   alert("Correct!");
-  highscore += 10;
+  score += 10;
   }
   else
   {alert("I'm sorry, the correct answer was " + questions[currentquestion].answer);
@@ -94,6 +97,8 @@ function showquestions () {
   currentquestion++
 showquestions()
  }
+
+ 
 
 
 // develop highscore page
