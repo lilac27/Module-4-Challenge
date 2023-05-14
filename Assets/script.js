@@ -1,34 +1,37 @@
+// define variables
 var score = 0
 var timer = document.getElementById('countdown');
 var startbutton = document.getElementById('start');
 var submit = document.getElementById("submitButton");
 var initials = document.getElementById("initials");
 var highscore = document.getElementById("highscore");
-var finalscores= localStorage.getItem("highscores")
+var finalscores= JSON.parse(window.localStorage.getItem("highscores")) || [];
 var scoreContainerEl = document.getElementById("scoreOl");
+var currentquestion = 0
 var questions = [
   {
-    question:"This is question 1",
-    choices:["choice 1", "choice 2", "choice 3"],
-    answer:"choice 3"
+    question:"Strict equality in java is represented by:",
+    choices:["==", "!=", "==="],
+    answer:"==="
   },
   {
-    question:"This is question 2",
-    choices:["choice 1", "choice 2", "choice 3"],
-    answer:"choice 1"
+    question:"If you would like to store data with no expiration date, what should you use?",
+    choices:["localStorage", "sessionStorage", "JSON.parse"],
+    answer:"localStorage"
   },
   {
-    question:"This is question 3",
-    choices:["choice 1", "choice 2", "choice 3"],
-    answer:"choice 1"
+    question:"# is used to reference an id key",
+    choices:["true", "false"],
+    answer:"true"
   }
 
 
 ]
-var currentquestion = 0
+
 
 console.log(questions[0].question)
 
+//create timer
 var timeLeft = 30;
 // Timer that counts down from 30
 function countdown() {
@@ -75,6 +78,7 @@ function countdown() {
 
   });
 
+//create an event listener to show highscore page
   highscore.addEventListener ("click", function(){
     document.querySelector("#main").classList.add("hide")
     document.querySelector("#scoresheet").classList.remove("hide")
@@ -84,13 +88,9 @@ function countdown() {
       liTag.textContent = highScoreText;
       scoreContainerEl.appendChild(liTag);
     }
-  
-   // document.querySelector("#scoresheet").textContent = finalscores;
-  
-  
   });
 
-
+//create a funtion to display questions once start button is pushed
 function showquestions () {
   console.log("Show Questions");
   document.getElementById("buttoncontainer").innerHTML=""
@@ -104,6 +104,7 @@ function showquestions () {
     document.getElementById("buttoncontainer").appendChild(newbtn)
   }
 }
+// create function to show next question
  function nextquestion (event){
   console.log (event.target.textContent)
   if (event.target.textContent == questions[currentquestion].answer){
@@ -118,6 +119,7 @@ function showquestions () {
   currentquestion++
 showquestions()
  }
+// add event listener to store highscore values
  submit.addEventListener ("click", function(){
   var userInitials = initials.value;
   var userScore = score
@@ -131,12 +133,4 @@ showquestions()
   };
   highscores.push(userScore);
   window.localStorage.setItem("highscores", JSON.stringify(highscores));
- })
-
-
- 
-
-
-// develop highscore page
-// hold answers in local storage for highscore page
-// make highscore page, starts as hidden then remove the attribute
+ });
