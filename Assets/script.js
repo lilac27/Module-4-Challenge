@@ -1,6 +1,10 @@
 var score = 0
 var timer = document.getElementById('countdown');
 var startbutton = document.getElementById('start');
+var submit = document.getElementById("submitButton");
+var initials = document.getElementById("initials");
+var highscore = document.getElementById("highscore");
+var finalscores= localStorage.getItem("highscores")
 var questions = [
   {
     question:"This is question 1",
@@ -70,6 +74,12 @@ function countdown() {
 
   });
 
+  highscore.addEventListener ("click", function(){
+    document.querySelector("#main").classList.add("hide")
+    document.querySelector("#scoresheet").classList.remove("hide")
+    document.querySelector("#scoresheet").textContent = finalscores;
+  });
+
 function showquestions () {
   console.log("Show Questions");
   document.getElementById("buttoncontainer").innerHTML=""
@@ -97,6 +107,21 @@ function showquestions () {
   currentquestion++
 showquestions()
  }
+ submit.addEventListener ("click", function(){
+  var userInitials = initials.value;
+  var userScore = score
+
+  console.log(userInitials);
+  console.log(userScore);
+  var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
+  var userScore = {
+    score: userScore,
+    initials: userInitials,
+  };
+  highscores.push(userScore);
+  window.localStorage.setItem("highscores", JSON.stringify(highscores));
+ })
+
 
  
 
