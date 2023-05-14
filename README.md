@@ -27,4 +27,3 @@ THEN I can save my initials and my score
 ## URL
 https://lilac27.github.io/Module-4-Challenge/
 ## Preview
-./Assets/Module-4-Challenge pic.png
