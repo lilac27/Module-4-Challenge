@@ -5,6 +5,7 @@ var submit = document.getElementById("submitButton");
 var initials = document.getElementById("initials");
 var highscore = document.getElementById("highscore");
 var finalscores= localStorage.getItem("highscores")
+var scoreContainerEl = document.getElementById("scoreOl");
 var questions = [
   {
     question:"This is question 1",
@@ -77,8 +78,18 @@ function countdown() {
   highscore.addEventListener ("click", function(){
     document.querySelector("#main").classList.add("hide")
     document.querySelector("#scoresheet").classList.remove("hide")
-    document.querySelector("#scoresheet").textContent = finalscores;
+    for (var i = 0; i < finalscores.length; i += 1) {
+      var highScoreText = finalscores[i].initials + " - " + finalscores[i].score;
+      var liTag = document.createElement("li");
+      liTag.textContent = highScoreText;
+      scoreContainerEl.appendChild(liTag);
+    }
+  
+   // document.querySelector("#scoresheet").textContent = finalscores;
+  
+  
   });
+
 
 function showquestions () {
   console.log("Show Questions");
